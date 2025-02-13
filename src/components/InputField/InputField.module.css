@@ -1,0 +1,26 @@
+.inputField {
+    display: flex;
+    max-height: 50px;
+    max-width: 300px;
+    flex-direction: column;   
+    margin-bottom: 30px;
+    gap: 10px;
+
+}
+
+.inputFieldContent {
+    display: flex;
+    align-items: center;
+    
+    gap: 20px;
+}
+
+.inputField img {
+    width: 32px;  
+    height: 32px;  
+}
+
+.inputCustom {
+    max-width: 300px;
+    max-height: 52px;
+}
