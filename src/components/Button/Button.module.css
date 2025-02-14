@@ -4,8 +4,10 @@
   width: 150px;
   height: 45px;
   border: solid 1px black;  
+  font-size: 16px;
 }
 
 .button:hover {
   cursor: pointer;
+  background-color: #E99145;
 }

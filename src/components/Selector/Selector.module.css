@@ -1,6 +1,6 @@
 .selectorContainer {
     position: relative;
-    width: 256px; /* equivalent to w-64 */
+    width: 350px; /* equivalent to w-64 */
 }
 
 .selectorButton {

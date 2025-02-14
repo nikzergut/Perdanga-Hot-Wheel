@@ -7,15 +7,14 @@
     background-color: #5A6772;
   }
   
-  .content {
+.content {
     display: flex;
     justify-content: center;      
     min-height: 1000px;    
     color: black;
     background-color: var(--primary-color);
   }
-  
-  .footer {
+.footer {
     text-align: center;
     color: #fff;
     background-color: #4096ff;

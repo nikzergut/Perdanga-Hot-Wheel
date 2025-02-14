@@ -1,0 +1,7 @@
+.content {
+    display: flex;
+    justify-content: center;      
+    min-height: 1000px;    
+    color: black;
+    background-color: var(--primary-color);
+}

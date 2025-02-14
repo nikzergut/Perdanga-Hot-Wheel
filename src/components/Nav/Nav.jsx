@@ -1,17 +1,17 @@
 import styles from './Nav.module.css';
-
+import { Link } from 'react-router';
 function Nav() {
   return (
-    <div>
-      <ul>
+    <div className={styles.navContainer}>
+      <ul className={styles.nav}>
         <li>
-          <a href="">Main</a>
+          <Link to="/">Main</Link>
         </li>
         <li>
-          <a href="">Events</a>
+          <Link to="/events">Events</Link>
         </li>
         <li>
-          <a href="">Profile</a>
+          <Link to="/roulette">Profile</Link>
         </li>
       </ul>
     </div>
