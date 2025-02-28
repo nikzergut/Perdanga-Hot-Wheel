@@ -1,5 +1,18 @@
+import { Link } from 'react-router';
+import Button from '../../components/Button/Button';
+
+
 function Home() {
-  return <div>Home</div>;
+  
+  
+  return (
+    <>
+      <Button> Home Page</Button>
+      
+    </>
+  );
 }
 
 export default Home;
+
+

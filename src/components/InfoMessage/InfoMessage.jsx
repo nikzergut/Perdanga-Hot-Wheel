@@ -6,7 +6,7 @@ function InfoMessage(props) {
       <div className={styles.infoMessage}>
         <span>{props.message}</span>
         <img
-          src="https://www.svgrepo.com/show/178323/cross-close.svg"
+          src="https://img.icons8.com/?size=100&id=23537&format=png&color=000000"
           alt=""
           onClick={() => {
             props.onClick();

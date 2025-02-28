@@ -1,0 +1,14 @@
+.playerField {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 82%;
+    max-width: 200px;
+    gap: 10px;
+    padding: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    border-radius: 6px;
+}

@@ -1,0 +1,32 @@
+.playerCard {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 227px;
+    margin-bottom: 20px;
+    background-color: #5A6772;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+.gameListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: 700;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

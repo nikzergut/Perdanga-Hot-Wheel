@@ -9,36 +9,42 @@ import InfoMessage from '../../components/InfoMessage/InfoMessage';
 import Button from '../../components/Button/Button';
 import dayjs from 'dayjs';
 
-const rules = [
-  {
-    value: 5351,
-    label: 'Johny',
-  },
-  {
-    value: 412,
-    label: 'Abba',
-  },
-  {
-    value: 53461,
-    label: 'Gioga',
-  },
-  {
-    value: 54326,
-    label: 'Zetnik',
-  },
-];
+
 
 function EventCreation() {
   // Event Name
   const [eventName, setEventName] = useState('');
   // Game Count
   const [gameCounter, setGameCount] = useState('');
+  // Rule
+  const [rules, setRule] = useState([
+    
+      {
+        value: 5351,
+        label: 'Johny',
+      },
+      {
+        value: 412,
+        label: 'Abba',
+      },
+      {
+        value: 53461,
+        label: 'Gioga',
+      },
+      {
+        value: 54326,
+        label: 'Zetnik',
+      },
+    
+  ])
+  const [isOpenSelector, setIsOpenSelector] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
   // Datepicker
   const [startTime, setStartTime] = useState(dayjs());
   const [endTime, setEndTime] = useState(null);
   const [currentTime] = useState(dayjs());
   // Info Message
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenInfo, setIsOpenInfo] = useState(false);
   const [text, setText] = useState('');
 
   function onStartTimeChange(e) {
@@ -54,32 +60,49 @@ function EventCreation() {
   }
 
   function closeMessage() {
-    setIsOpen(prev => {
+    setIsOpenInfo(prev => {
       return !prev;
     });
   }
 
+  const [formData, setFormData] = useState({})
+    
   function createPopup() {
     setText('Данные отправлены в министерство');
-    setIsOpen(true);
+    setIsOpenInfo(true);
+    // setFormData((prev) => {
+    //   prev.title = eventName
+    //   prev.rules = 
+
+    // })
     setTimeout(() => {
-      if(isOpen === true) {
-        setIsOpen(false);
-      }      
-    }, 2000);
+      console.log("IS OPEN IS", isOpenInfo)
+      setIsOpenInfo(false);      
+    }, 4000);
+  }
+ 
+  function selectOption(option) {
+    setSelectedOption(option)
+    setIsOpenSelector(false)
+  }
+
+  function togleSelector() {
+    setIsOpenSelector((prev) => {
+      return !prev
+    });
   }
 
   return (
     <div className={styles.eventCreation}>
       <HeaderTitle title="Event Creation"></HeaderTitle>
       <InputField name="Название ивента">
-        <Input type="text" onChange={setEventName} inputValue={eventName} placeholder="Введите название ивента" />
+        <Input type="text" onChange={setEventName} inputValue={eventName} maxLength={32} placeholder="Введите название ивента" />
       </InputField>
       <InputField name="Правила">
-        <Selector options={rules} placeholder="Выбрите правила..."></Selector>
+        <Selector options={rules} selectedOption={selectedOption} isOpen={isOpenSelector} onClick={selectOption} openSelector={togleSelector} placeholder="Выбрите правила..."></Selector>
       </InputField>
       <InputField name="Количество игр">
-        <Input type="number" onChange={setGameCount} inputValue={gameCounter} placeholder="" />
+        <Input type="number" maxLength={2} onChange={setGameCount} inputValue={gameCounter} placeholder="" />
       </InputField>
       <InputField name="Начало ивента">
         <Datepicker
@@ -93,7 +116,7 @@ function EventCreation() {
           currentTime={endTime}
           minTime={startTime.format('YYYY-MM-DDTHH:mm')}></Datepicker>
       </InputField>
-      <InfoMessage message={text} onClick={closeMessage} isOpen={isOpen}></InfoMessage>
+      <InfoMessage message={text} onClick={closeMessage} isOpen={isOpenInfo}/>
       <Button onClick={createPopup}>Создать</Button>
     </div>
   );

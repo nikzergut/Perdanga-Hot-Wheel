@@ -12,8 +12,10 @@
   "dependencies": {
     "air-datepicker": "^3.5.3",
     "antd": "^5.23.4",
+    "axios": "^1.7.9",
     "browserslist": "last 2 versions",
     "dayjs": "^1.11.13",
+    "query-string": "^9.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.1.5"
