@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './Template.module.css';
 import { useState } from 'react';
 import Nav from '../Nav/Nav';
-import Wrapper from '../Wrapper/Wrapper';
-import Header from '../Layout/Header/Header';
-import Content from '../Layout/Content/Content';
-import Footer from '../Layout/Footer/Footer';
-import Layout from '../Layout/Layout';
+import Wrapper from './Wrapper/Wrapper';
+import Header from './Layout/Header/Header';
+import Content from './Layout/Content/Content';
+import Footer from './Layout/Footer/Footer';
+import Layout from './Layout/Layout';
 
 const menuItems = [
   {
@@ -35,16 +35,14 @@ function Template(props) {
   };
 
   return (
-    <Layout>
-      <>
+    <Layout>      
         <Header className={styles.header}>
           <Nav />
         </Header>
         <Content className={styles.content}>
           <Wrapper>{props.children}</Wrapper>
         </Content>
-        <Footer className={styles.footer}>Made for Perdanga</Footer>
-      </>
+        <Footer className={styles.footer}>Made for Perdanga</Footer>      
     </Layout>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from '../Button/Button';
 import PlayerField from '../PlayerField/PlayerField';
 import GameListItem from '../GameListItem/GameListItem';
+import CloudMessage from '../CloudMessage/CloudMessage';
 // function onChange(e) {
 //   set
 // }
@@ -41,7 +42,7 @@ function PlayerCard() {
   }
   return (
     <div className={styles.playerCard}>
-      <PlayerField steamNick="zalupechka" steamAvatarSource="steamSource" />
+      <PlayerField steamNick="Gabe" steamAvatarSource="steamSource" />
       <Input        
         placeholder="Название игры..."
         type="text"
@@ -49,7 +50,6 @@ function PlayerCard() {
         inputValue={gameName}
         enterKey={enterName}
         maxLength={32}></Input>
-
       <ul>
         {games.map(game => {
           return (            

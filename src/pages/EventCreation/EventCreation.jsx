@@ -49,7 +49,7 @@ function EventCreation() {
 
   function onStartTimeChange(e) {
     const value = dayjs(e.target.value);
-    setStartTime(value);
+    setStartTime(value);    
     if (endTime && value.valueOf() > endTime.valueOf()) {
       setEndTime(null);
     }
@@ -63,18 +63,29 @@ function EventCreation() {
     setIsOpenInfo(prev => {
       return !prev;
     });
+  }  
+  
+  const [createEventData, setCreateEventData] = useState({})
+
+  function sendEventData(event) {
+    fetch(`http://127.0.0.1:8000/event/add`, {
+      method: 'POST',
+      body: event,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      }
+    }).then((resp) => console.log(resp))
   }
 
-  const [formData, setFormData] = useState({})
-    
   function createPopup() {
     setText('Данные отправлены в министерство');
     setIsOpenInfo(true);
-    // setFormData((prev) => {
-    //   prev.title = eventName
-    //   prev.rules = 
-
-    // })
+    sendEventData(createEventData)
+    setCreateEventData({
+      "name": eventName,
+      "start_event": startTime,
+      "end_event":  endTime
+    })    
     setTimeout(() => {
       console.log("IS OPEN IS", isOpenInfo)
       setIsOpenInfo(false);      
@@ -94,7 +105,7 @@ function EventCreation() {
 
   return (
     <div className={styles.eventCreation}>
-      <HeaderTitle title="Event Creation"></HeaderTitle>
+      <HeaderTitle>Event Creation</HeaderTitle>
       <InputField name="Название ивента">
         <Input type="text" onChange={setEventName} inputValue={eventName} maxLength={32} placeholder="Введите название ивента" />
       </InputField>

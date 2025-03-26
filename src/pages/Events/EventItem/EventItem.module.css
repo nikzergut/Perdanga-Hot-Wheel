@@ -1,0 +1,19 @@
+.eventItem{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    border: 1px solid black;
+    width: 380px;
+    height: 160px;
+    padding: 10px 20px;
+}
+
+.eventItemRow {
+    display: flex;
+    flex-direction: row;    
+}
+
+.eventItemRow[data-variant="two-row"] {
+    justify-content: space-between;
+}
